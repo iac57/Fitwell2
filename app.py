@@ -7,13 +7,13 @@ from flask import Flask, send_file
 app = Flask(__name__)
 
 # Local folder containing PDFs
-PDF_DIR = "/app/pdf_files"  # Use this path for Render deployment
-STATE_FILE = "/app/state.json"  # File to track selected PDF and last update time
+PDF_DIR = "/opt/render/project/src/pdf_files"  # Use this path for Render deployment
+STATE_FILE = "/opt/render/project/src/state.json"  # File to track selected PDF and last update time
 
 
 def log_directory_structure():
     print("Checking directory structure:")
-    root_contents = os.listdir("/app")
+    root_contents = os.listdir("/opt/render/project/src")
     print(f"Contents of /app: {root_contents}")
 
     if os.path.exists(PDF_DIR):
