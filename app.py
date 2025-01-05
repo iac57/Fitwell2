@@ -7,7 +7,7 @@ from flask import Flask, send_file
 app = Flask(__name__)
 
 # Local folder containing PDFs
-PDF_DIR = "/app/pdf_files"  # Use this path for Render deployment
+PDF_DIR = "/pdf_files"  # Use this path for Render deployment
 STATE_FILE = "/app/state.json"  # File to track selected PDF and last update time
 
 # Function to load the current state (selected PDF and last update time)
