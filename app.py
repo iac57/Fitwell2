@@ -7,8 +7,22 @@ from flask import Flask, send_file
 app = Flask(__name__)
 
 # Local folder containing PDFs
-PDF_DIR = "/pdf_files"  # Use this path for Render deployment
+PDF_DIR = "/app/pdf_files"  # Use this path for Render deployment
 STATE_FILE = "/app/state.json"  # File to track selected PDF and last update time
+
+
+def log_directory_structure():
+    print("Checking directory structure:")
+    root_contents = os.listdir("/app")
+    print(f"Contents of /app: {root_contents}")
+
+    if os.path.exists(PDF_DIR):
+        pdf_contents = os.listdir(PDF_DIR)
+        print(f"Contents of {PDF_DIR}: {pdf_contents}")
+    else:
+        print(f"Directory {PDF_DIR} does not exist!")
+
+log_directory_structure()
 
 # Function to load the current state (selected PDF and last update time)
 def load_state():
